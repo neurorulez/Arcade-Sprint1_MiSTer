@@ -128,8 +128,8 @@ wire [15:0] joystick_0_USB, joystick_1_USB;
 wire [15:0] joy = joystick_0 | joystick_1;
 wire [21:0] gamma_bus;
 
-wire [15:0] joystick_0 = |status[31:30] ? {joydb15_1[9],1'b0,joydb15_1[8],joydb15_1[6:0]} : joystick_0_USB;
-wire [15:0] joystick_1 =  status[31]    ? {joydb15_2[9],1'b0,joydb15_2[8],joydb15_2[6:0]} : status[30] ? joystick_0_USB : joystick_1_USB;
+wire [15:0] joystick_0 = |status[31:30] ? {joydb15_1[11],joydb15_1[7],joydb15_1[10],joydb15_1[6:0]} : joystick_0_USB;
+wire [15:0] joystick_1 =  status[31]    ? {joydb15_2[11],joydb15_2[7],joydb15_2[10],joydb15_2[6:0]} : status[30] ? joystick_0_USB : joystick_1_USB;
 
 reg [15:0] joydb15_1,joydb15_2;
 joy_db15 joy_db15
